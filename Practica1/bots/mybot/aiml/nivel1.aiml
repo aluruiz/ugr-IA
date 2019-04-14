@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+  <pattern>Piensa una fruta</pattern>
+  <template>
+    <think>
+      <set name="topic">nivel1</set>
+      <set name="frutaelegida"><random>
+        <li>fresa</li>
+        <li>manzana</li>
+        <li>naranja</li>
+        <li>kiwi</li>
+        <li>pinia</li>
+        <li>mango</li>
+        <li>melocoton</li>
+        <li>higo</li>
+        <li>ciruela</li>
+        <li>pera</li>
+        <li>platano</li>
+        <li>coco</li>
+        <li>aguacate</li>
+        <li>nuez</li>
+        <li>cereza</li>
+        <li>mandarina</li>
+      </random>
+    </set>
+  </think>
+    Vale empezamos, este es el nivel 1.
+  </template>
+</category>
+
+<topic name="nivel1">
+<category>
+  <pattern> _ color *</pattern>
+  <template>
+    <think>
+      <set var="colorfruta"> <map name="color1"><get name="frutaelegida"/></map></set>
+      <set var="colorelegido"><star index="2"/></set>
+      <set var="nro"><srai>FINDITEM <get var="colorelegido"/> IN <get var="colorfruta"/></srai></set>
+    </think>
+    <condition var="nro">
+      <li value="0"> No, la fruta no es de color <get var="colorelegido"/>. </li>
+      <li> Si, la fruta es de color <get var="colorelegido"/>.</li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> _ tamanio * </pattern>
+  <template>
+    <think>
+      <set var="tamaniofruta"> <map name="tamanio1"><get name="frutaelegida"/></map></set>
+      <set var="tamanioelegido"><star index="2"/></set>
+    </think>
+    <condition var="tamaniofruta">
+      <li> <value><get var="tamanioelegido"/></value> Si, la fruta es de tamanio <get var="tamaniofruta"/>.</li>
+      <li> No, la fruta no es de tamanio <get var="tamanioelegido"/>.</li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> _ sabor *</pattern>
+  <template>
+    <think>
+      <set var="saborfruta"> <map name="sabor1"><get name="frutaelegida"/></map></set>
+      <set var="saborelegido"><star index="2"/></set>
+    </think>
+    <condition var="saborfruta">
+      <li> <value><get var="saborelegido"/></value> Si, la fruta es de sabor <get var="saborfruta"/>.</li>
+      <li> No, la fruta no es de sabor <get var="saborelegido"/>. </li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> _ vitamina a</pattern>
+  <template>
+    <think>
+      <set var="tienevitaminaa"> <map name="vitaminaa1"><get name="frutaelegida"/></map></set>
+    </think>
+    <condition var="tienevitaminaa">
+      <li value = "si">Si, la fruta tiene vitamina A.</li>
+      <li> No, la fruta no tiene vitamina A. </li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> _ vitamina b</pattern>
+  <template>
+    <think>
+      <set var="tienevitaminab"> <map name="vitaminab1"><get name="frutaelegida"/></map></set>
+    </think>
+    <condition var="tienevitaminab">
+      <li value = "si">Si, la fruta tiene vitamina B.</li>
+      <li> No, la fruta no tiene vitamina B. </li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> _ vitamina c</pattern>
+  <template>
+    <think>
+      <set var="tienevitaminac"> <map name="vitaminac1"><get name="frutaelegida"/></map></set>
+    </think>
+    <condition var="tienevitaminac">
+      <li value = "si">Si, la fruta tiene vitamina C.</li>
+      <li> No, la fruta no tiene vitamina C. </li>
+    </condition>
+  </template>
+</category>
+
+<category>
+  <pattern> Es [la el] * </pattern>
+  <template>
+    <think>
+      <set var="frutafinal"><star/></set>
+    </think>
+    <condition name="frutaelegida">
+      <li> <value><get var="frutafinal"/></value> Si, la fruta es <get name="frutaelegida"/>.</li>
+      <li> No, esa no es la fruta. </li>
+    </condition>
+  </template>
+</category>
+</topic>
+</aiml>

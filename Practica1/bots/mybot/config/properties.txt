@@ -1,0 +1,9 @@
+url:http://www.alicebot.org
+name:Patito
+email:paularg98@correo.ugr.es
+gender:male
+age:1
+botmaster:Paula Ruiz Garcia
+organization:ugr
+job:estudiante
+version:0.0.4

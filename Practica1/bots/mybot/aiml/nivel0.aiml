@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!--Preguntas nivel 0-->
+<!--1-->
+<category>
+  <pattern>como _ la+ ^ practica+</pattern>
+  <template>Para superar la parte practica es necesario que nota media entre las tres practicas y el examen, mas la suma de la participacion, sea mayor o igual a 3.</template>
+</category>
+
+<!--2-->
+<category>
+  <pattern>como se _ en ^ [ordinaria junio]</pattern>
+  <template>
+  -Parte Teorica: durante el curso se realizaran dos pruebas, y la nota sera la media de las dos pruebas.
+  -Parte Practica: Se contara la asistencia y participacion en clase (10%). Y la media entre las tres practicas y el examen de practicas (90%).
+  La calificacion final de cada parte debe ser de 3 o superior para poder hacer media.</template>
+</category>
+
+<!--3-->
+<category>
+  <pattern>_ [examen prueba] de practica+ en ^ [extraordinaria julio]</pattern>
+  <template>No, en la convocatoria extraordinaria habra un unico examen que incluira preguntas tanto de teoria como de practicas.</template>
+</category>
+
+<!--4-->
+<category>
+  <pattern>que pasa si no puedo _ a clase ^</pattern>
+  <template>Se puede pedir la evaluacion única.</template>
+</category>
+
+<!--5-->
+<category>
+  <pattern>_ minima para [aprobar pasar] ^</pattern>
+  <template>Para aprobar la asignatura es necesario teener una calificación numerica superior o igual a 5(sobre 10).
+  Ademas, es necesario para superar la asignatura, que tanto la calificación de la parte teorica como la correspondiente a la practica sean mayores o iguales a 3 (sobre 10).</template>
+</category>
+
+<!--6-->
+<category>
+  <pattern>la+ practica+ ^ [es son] obligatoria+</pattern>
+  <template>Es obligatorio que el alumno adquiera la totalidad de las competencias de practicas.</template>
+</category>
+
+<!--7-->
+<category>
+  <pattern>cuanto _ cada practica ^ respecto ^ [final junio]</pattern>
+  <template>Cada practica equivale a un 11'25% respecto a la nota final.</template>
+</category>
+
+<!--8-->
+<category>
+  <pattern>cuanto _ la [asistencia participacion] ^ respecto ^ [final junio]</pattern>
+  <template>Un 5%.</template>
+</category>
+
+<!--9-->
+<category>
+  <pattern>como se _ particip+</pattern>
+  <template>Haciendo los ejercicios en clase cuando el profesor nos ofrezca salir a la pizarra.</template>
+</category>
+
+<!--10-->
+<category>
+  <pattern>_ trabaj+ ^ individual+ </pattern>
+  <template>Si.</template>
+</category>
+
+<!--11-->
+<category>
+  <pattern>_ trabaj+ en [grupo+ pareja+ equipo+]</pattern>
+  <template>No.</template>
+</category>
+
+<!--12-->
+<category>
+  <pattern>_ entregar ^ ejercicio+ de la+ relacion+ de [problemas ejercicios]</pattern>
+  <template>No si el profesor no te lo pide.</template>
+</category>
+
+<!--13-->
+<category>
+  <pattern>_ primer+ [examen parcial prueba] ^ teori+</pattern>
+  <template>50% de la parte de teoria.</template>
+</category>
+
+<!--14-->
+<category>
+  <pattern>_ recuper+ ^ [practica examen prueba parcial] ^</pattern>
+  <template>No se puede.</template>
+</category>
+
+<!--15-->
+<category>
+  <pattern>que _ copi+ de otro [estudiante alumno compañero]</pattern>
+  <template>Que si te pillan suspendeis los dos.</template>
+</category>
+
+<!--16-->
+<category>
+  <pattern>que _ si me dejo copi+ ^ otro [estudiante alumno compañero]</pattern>
+  <template>Que si te pillan suspendeis los dos.</template>
+</category>
+
+<!--17-->
+<category>
+  <pattern> _ suspend+ ^ (convocatoria) [ordinaria junio]</pattern>
+  <template>Te presentas a la extraordinaria. Pero si has aprobado una parte se te guarda para la siguiente convocatoria.</template>
+</category>
+
+<!--18-->
+<category>
+  <pattern>cuanto _ la practica y la teoria</pattern>
+  <template>50% y 50%</template>
+</category>
+
+<!--19-->
+<category>
+  <pattern>cual _ horario de tutori+ ^ profes+ de practicas</pattern>
+  <template>Lunes de 10:00 a 13:30 en D23 (ETSIIT)
+  Martes de 10:00 a 12:30 en D23 (ETSIIT)</template>
+</category>
+
+<!--20-->
+<category>
+  <pattern>se puede [aprobar pasar superar] ^ (parte) practica+ de la asignatura si no presento una practica </pattern>
+  <template>Si tu media de practicas da tres si.</template>
+</category>
+
+<!--21-->
+<category>
+  <pattern>cual es la [nota puntuacion] minima que tengo que ^ en cada parte para hacer media</pattern>
+  <template>Minimo un 3</template>
+</category>
+
+<!--22-->
+<category>
+  <pattern>que [nota calificacion puntuacion] _ en la practica 1 si opto por defender el nivel 3 y no lo [consigo supero]</pattern>
+  <template>Un 6, lo correspondiente al nivel 1.</template>
+</category>
+
+<!--23-->
+<category>
+  <pattern>puedo [entregar presentar] la practica 1 sin hacer la tarea relativa al nivel 0</pattern>
+  <template>No, tendrias un cero.</template>
+</category>
+
+<!--24-->
+<category>
+  <pattern>que _ no puedo [asistir presentarme] ^ sesion de practicas en la que me corresponde hacer la defensa de mi practica 1</pattern>
+  <template>Avisar a tu profesor de practicas con antelacion para ver si la puedes hacer en otro momento.</template>
+</category>
+
+<!--25-->
+<category>
+  <pattern>cuant+ [prueba+ parcial+] teoric+ tendre _ [curso cuatrimestre]</pattern>
+  <template>Dos.</template>
+</category>
+
+<!--26-->
+<category>
+  <pattern>[que cuanto] _ primer+ [prueba parcial] ^ teori+ </pattern>
+  <template>50% dentro de la parte teorica</template>
+</category>
+
+<!--27-->
+<category>
+  <pattern>_ consiste ^ [examen parcial prueba] de ejercicio+</pattern>
+  <template>Un examen escrito de resolucion de problemas.</template>
+</category>
+
+<!--28-->
+<category>
+  <pattern>que _ si no estoy segur+ de poder [superar pasar] _ nivel 3 de la practica 1</pattern>
+  <template>Quedarte en aquel que si eres capaz de superar, como el dos por ejemplo.</template>
+</category>
+
+<!--29-->
+<category>
+  <pattern>yo programo muy bien en c++ podria hacer la practica 1 en ese lenguaje</pattern>
+  <template>No, ya que la practica consiste en aprender aiml.</template>
+</category>
+
+<!--30-->
+<category>
+  <pattern>_ agentes conversacionales y soy un experto en su construccion podria usar un agente conversacional para que vayan en mi lugar a hacer la defensa de practicas</pattern>
+  <template></template>
+</category>
+
+</aiml>

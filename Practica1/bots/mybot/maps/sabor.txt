@@ -1,0 +1,4 @@
+acido:naranja kiwi mandarina pinia
+semiacido:fresa manzana mango melocoton cereza
+dulce:higo ciruela pera platano
+neutro:coco aguacate nuez

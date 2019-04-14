@@ -1,0 +1,3 @@
+pequenio:fresa kiwi mandarina higo ciruela nuez cereza
+mediano:manzana naranja melocoton pera platano aguacate
+grande:pinia mango coco

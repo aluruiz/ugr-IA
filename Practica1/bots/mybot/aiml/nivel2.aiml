@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <category>
+    <pattern>Adivina mi fruta</pattern>
+    <template>
+      <think>
+        <set name="topic">nivel2</set>
+        <set name="listafrutas"><map name="lista">frutas</map></set>
+        <set name="nrofrutas"><srai>COUNT <get name="listafrutas"/></srai></set>
+        <set name="listapropiedades"><map name="lista">propiedades</map></set>
+        <set var="cantidad"><srai>COUNT <get name="listapropiedades"/></srai></set>
+        <set name="nro"><srai>RANDOM <get var="cantidad"/></srai></set>
+        <set name="pregunta"><srai>SELECTITEM <get name="nro"/> IN <get name="listapropiedades"/></srai></set>
+        <set name="opciones_pregunta"><readset><get name="pregunta"/></readset></set>
+        <set var="cant_pregunta"><srai>COUNT <get name="opciones_pregunta"/></srai></set>
+        <set name="num"><srai>RANDOM <get var="cant_pregunta"/></srai></set>
+        <set name="opcion"><srai>SELECTITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set>
+      </think>
+      <condition name="pregunta">
+        <li><value>vitamina</value>
+        Vale primera pregunta, tiene <get name="opcion"/>?
+        </li>
+        <li>
+          <random>
+            <li>Vale, primera pregunta es de <get name="pregunta"/> <get name="opcion"/>?</li>
+            <li>Venga empezamos, es <get name="opcion"/>?</li>
+          </random>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <topic name="nivel2">
+    <category>
+      <pattern>si</pattern>
+      <template>
+        <think>
+      <condition name="pregunta">
+        <li><value>vitamina</value>
+            <condition name="opcion">
+            <li value="vitaminaa">
+            <set name="listafrutas_parcial"><map name="vitaminaa">si</map></set>
+            <set name="opciones_pregunta"><srai>REMOVEITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set></li>
+            <li value="vitaminab">
+            <set name="listafrutas_parcial"><map name="vitaminab">si</map></set>
+            <set name="opciones_pregunta"><srai>REMOVEITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set></li>
+            <li value="vitaminac">
+            <set name="listafrutas_parcial"><map name="vitaminac">si</map></set>
+            <set name="opciones_pregunta"><srai>REMOVEITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set></li>
+            </condition>
+        </li>
+        <li>
+          <set name="listafrutas_parcial"><map><name><get name="pregunta"/></name><get name="opcion"/></map></set>
+          <set name="listapropiedades"><srai>REMOVEITEM <get name="nro"/> IN <get name="listapropiedades"/></srai></set>
+        </li>
+      </condition>
+          <set var="item"><srai> ITERATE <get name="listafrutas"/> </srai></set>
+          <condition var="item">
+            <li value="$"></li>
+            <li>
+              <set var="num_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas"/></srai></set>
+              <set var="nro_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas_parcial"/></srai></set>
+              <condition var="nro_item">
+                <li value="0">
+                  <set name="listafrutas"><srai>REMOVEITEM <get var="num_item"/> IN <get name="listafrutas"/></srai></set>
+                </li>
+              </condition>
+                <set var="item"><srai>NEXT</srai></set>
+                <loop/>
+            </li>
+          </condition>
+          <set name="nrofrutas"><srai>COUNT <get name="listafrutas"/></srai></set></think>
+          Quedan <get name="nrofrutas"/> frutas.
+          <condition name="nrofrutas">
+            <li value="1">
+              <think><set var="frutafinal"><srai>SELECTITEM 1 IN <get name="listafrutas"/></srai></set></think>
+              Entonces tu fruta es <get var="frutafinal"/> ¿He acertado?
+            </li>
+            <li>
+              <think>
+              <set var="cantidad"><srai>COUNT <get name="listapropiedades"/></srai></set>
+              <set name="nro"><srai>RANDOM <get var="cantidad"/></srai></set>
+              <set name="pregunta"><srai>SELECTITEM <get name="nro"/> IN <get name="listapropiedades"/></srai></set>
+              <set name="opciones_pregunta"><readset><get name="pregunta"/></readset></set>
+              <set var="cant_pregunta"><srai>COUNT <get name="opciones_pregunta"/></srai></set>
+              <set name="num"><srai>RANDOM <get var="cant_pregunta"/></srai></set>
+              <set name="opcion"><srai>SELECTITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set>
+              </think>
+              Quedan <get name="nrofrutas"/> frutas.
+            <random>
+              <li>Siguiente pregunta de <get name="pregunta"/> <get name="opcion"/>?</li>
+              <li>Es <get name="opcion"/>?</li>
+            </random>
+            </li>
+          </condition>
+    </template>
+    </category>
+
+    <category>
+      <pattern>no</pattern>
+      <template>
+        <think>
+        <condition name="pregunta">
+          <li><value>vitamina</value>
+              <condition name="opcion">
+                <li value="vitaminaa">
+                <set name="listafrutas_parcial"><map name="vitaminaa">no</map></set></li>
+                <li value="vitaminab">
+                <set name="listafrutas_parcial"><map name="vitaminab">no</map></set></li>
+                <li value="vitaminac">
+                <set name="listafrutas_parcial"><map name="vitaminac">no</map></set></li>
+              </condition>
+          </li>
+          <li>
+            <set name="listafrutas_parcial"><map><name><get name="pregunta"/></name><get name="opcion"/></map></set>
+          </li>
+        </condition>
+        <set var="item"><srai> ITERATE <get name="listafrutas"/> </srai></set>
+        <condition var="item">
+          <li value="$"></li>
+          <li>
+            <condition name="pregunta">
+              <li value="vitamina">
+                <set var="num_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas"/></srai></set>
+                <set var="nro_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas_parcial"/></srai></set>
+                <condition var="nro_item">
+                  <li value="0">
+                    <set name="listafrutas"><srai>REMOVEITEM <get var="num_item"/> IN <get name="listafrutas"/></srai></set>
+                  </li>
+                </condition>
+              </li>
+              <li>
+            <set var="num_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas"/></srai></set>
+            <set var="nro_item"><srai>FINDITEM <get var="item"/> IN <get name="listafrutas_parcial"/></srai></set>
+            <condition var="nro_item">
+              <li value="0"></li>
+              <li>
+                <set name="listafrutas"><srai>REMOVEITEM <get var="num_item"/> IN <get name="listafrutas"/></srai></set>
+              </li>
+            </condition>
+          </li>
+        </condition>
+            <set var="item"><srai>NEXT</srai></set>
+          <loop/>
+          </li>
+        </condition>
+        <set name="nrofrutas"><srai>COUNT <get name="listafrutas"/></srai></set></think>
+        <condition name="nrofrutas">
+          <li value="1">
+            <think><set var="frutafinal"><srai>SELECTITEM 1 IN <get name="listafrutas"/></srai></set></think>
+            Entonces tu fruta es <get var="frutafinal"/> ¿He acertado?
+          </li>
+          <li>
+            <think>
+            <set name="opciones_pregunta"><srai>REMOVEITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set>
+            <set var="cant_pregunta"><srai>COUNT <get name="opciones_pregunta"/></srai></set>
+            <set name="num"><srai>RANDOM <get var="cant_pregunta"/></srai></set>
+            <set name="opcion"><srai>SELECTITEM <get name="num"/> IN <get name="opciones_pregunta"/></srai></set>
+          </think>
+          <condition name="pregunta">
+            <li><value>vitamina</value>
+            Quedan <get name="nrofrutas"/> frutas.
+            Entonces tiene <get name="opcion"/>?
+            </li>
+            <li>
+              Quedan <get name="nrofrutas"/> frutas.
+              <random>
+                <li>Entonces es de <get name="pregunta"/> <get name="opcion"/>?</li>
+                <li>puede que sea <get name="opcion"/>?</li>
+              </random>
+            </li>
+          </condition>
+        </li>
+      </condition>
+      </template>
+    </category>
+
+    <category>
+      <pattern>Acertaste</pattern>
+      <template>Genial ¿quieres jugar otra vez?</template>
+    </category>
+
+    <category>
+      <pattern>Vale jugemos de nuevo</pattern>
+      <template><srai>ADIVINA MI FRUTA</srai></template>
+    </category>
+
+  </topic>
+  </aiml>
